@@ -1,0 +1,7 @@
+
+logging:
+  level:
+    org.springframework: info
+    com.wangbowang.hbyx: info
+  pattern:
+    console: "%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{64})  - %msg%n"
