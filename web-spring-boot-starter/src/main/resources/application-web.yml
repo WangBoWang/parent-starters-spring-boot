@@ -1,0 +1,22 @@
+
+
+spring:
+  application:
+    name: ${app.name}-${app.role}
+  http:
+    encoding.charset: UTF-8
+    encoding.enable: true
+    encoding.force: true
+  aop:
+    proxy-target-class: true
+  jackson:
+    generator:
+      WRITE_NUMBERS_AS_STRINGS: true
+
+server:
+ undertow:
+   io-threads: 2
+   worker-threads: 200
+
+app:
+  verbose-message: true

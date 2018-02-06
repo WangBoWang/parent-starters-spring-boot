@@ -45,6 +45,25 @@
         <starters.version>1.0-SNAPSHOT</starters.version>
     </properties>
 
+    <!--根据环境参数来调整构建配置的列表-->
+    <profiles>
+        <profile>
+            <!-- profile的唯一标识 -->
+            <id>integration</id>
+            <!-- 扩展属性列表 -->
+            <properties>
+                <skip.unit-tests>false</skip.unit-tests>
+                <skip.integration-tests>false</skip.integration-tests>
+            </properties>
+        </profile>
+    </profiles>
+
+    <!--子项目构建整合模块。在构建父项目时，可以同时将所有声明的子项目一起构建。-->
+    <modules>
+        <module>logging-spring-boot-starter</module>
+        <module>web-spring-boot-starter</module>
+    </modules>
+
     <!--通用依赖，子类可直接继承依赖服务和服务版本-->
     <dependencies>
         <!--spring boot common starters-->
@@ -96,6 +115,11 @@
             <!--logging-->
             <dependency>
                 <groupId>com.wangbowang</groupId>
+                <artifactId>web-spring-boot-starter</artifactId>
+                <version>${starters.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wangbowang</groupId>
                 <artifactId>logging-spring-boot-starter</artifactId>
                 <version>${starters.version}</version>
             </dependency>
@@ -115,25 +139,6 @@
             <url>http://localhost:8081/nexus/content/repositories/hs_snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
-
-
-    <!--根据环境参数来调整构建配置的列表-->
-    <profiles>
-        <profile>
-            <!-- profile的唯一标识 -->
-            <id>integration</id>
-            <!-- 扩展属性列表 -->
-            <properties>
-                <skip.unit-tests>false</skip.unit-tests>
-                <skip.integration-tests>false</skip.integration-tests>
-            </properties>
-        </profile>
-    </profiles>
-
-    <!--子项目构建整合模块。在构建父项目时，可以同时将所有声明的子项目一起构建。-->
-    <modules>
-        <module>logging-spring-boot-starter</module>
-    </modules>
 
     <!--项目构建配置-->
     <build>
