@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wangbowang</groupId>
-    <artifactId>logging-spring-boot-starter</artifactId>
+    <artifactId>kafka-spring-boot-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -13,25 +13,16 @@
     <description>logging starter for spring boot</description>
 
     <parent>
-        <groupId>com.wangbowang</groupId>
         <artifactId>parent-starters-spring-boot</artifactId>
+        <groupId>com.wangbowang</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-kafka</artifactId>
         </dependency>
-
-        <!--logging-->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-
     </dependencies>
 
 </project>
