@@ -14,7 +14,7 @@
 
     <parent>
         <groupId>com.wangbowang</groupId>
-        <artifactId>starters-spring-boot</artifactId>
+        <artifactId>parent-starters-spring-boot</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
