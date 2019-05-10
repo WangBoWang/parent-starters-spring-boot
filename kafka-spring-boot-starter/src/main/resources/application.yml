@@ -1,5 +1,5 @@
 kafka:
-  broker: 127.0.0.1:9092
+  broker: 127.0.0.1:9095
   topics:
     - topic1
     - topic2
