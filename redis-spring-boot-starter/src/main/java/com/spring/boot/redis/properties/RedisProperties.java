@@ -1,5 +1,6 @@
 package com.spring.boot.redis.properties;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @since 1.0.0
  */
 @ConfigurationProperties(prefix = "spring.redis")
+@Data
 public class RedisProperties {
 
     /**
@@ -29,26 +31,30 @@ public class RedisProperties {
     /**
      * 连接池最大连接数（使用负值表示没有限制）
      */
-    private Integer maxActive = 200;
+    private Integer maxActive;
 
     /**
      * 连接池最大阻塞等待时间（使用负值表示没有限制）
      */
-    private Integer maxWait = -1;
+    private Integer maxWait;
 
     /**
      * 连接池中的最大空闲连接
      */
-    private Integer maxIdle = 10;
+    private Integer maxIdle;
 
     /**
      * 连接池中的最小空闲连接
      */
-    private Integer minIdle = -1;
+    private Integer minIdle;
 
     /**
      * 连接超时时间（毫秒）
      */
-    private Long timeOut = 1000L;
+    private Integer timeOut;
 
+    /**
+     * 数据库索引
+     */
+    private Integer database;
 }

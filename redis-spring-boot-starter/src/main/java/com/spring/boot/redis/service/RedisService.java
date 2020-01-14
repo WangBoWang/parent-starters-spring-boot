@@ -1,6 +1,8 @@
 package com.spring.boot.redis.service;
 
-import com.spring.boot.redis.properties.RedisProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 
 /**
  * redis service 核心类
@@ -8,10 +10,11 @@ import com.spring.boot.redis.properties.RedisProperties;
  * @create 2019/4/30
  * @since 1.0.0
  */
+@Component
 public class RedisService {
-    private RedisProperties redisProperties;
 
-    public RedisService(RedisProperties redisProperties){
-        this.redisProperties = redisProperties;
-    }
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+
 }
