@@ -22,7 +22,6 @@ public class RedisLock {
 
     private final static int EFAULT_RETRY_COUNT = 3;
 
-
     /**
      * 加锁
      * @param key 锁唯一标志（不是要缓存的数据的key）
@@ -46,6 +45,7 @@ public class RedisLock {
             retryCount = 1;
         }
         for(int i=0;i<retryCount;i++){
+            //无自旋，重试意义不大
             if(lock(key,expiredTimestamp)){
                 return true;
             }
@@ -56,17 +56,20 @@ public class RedisLock {
 
     /**
      * 加锁
+     * 可以将value设置为锁过期时间
      * @param key 锁唯一标志（不是要缓存的数据的key）
      * @param expiredTimestamp 超时时间戳=System.currentTimeMillis()+超时时间
      */
     public boolean lock(String key, long expiredTimestamp){
         String value = String.valueOf(expiredTimestamp);
 
+        //如果设置成功，则说明当前锁标志无人占用，当前线程将占用该锁
         if(redisTemplate.opsForValue().setIfAbsent(key,value)){
             return true;
         }
 
         //判断锁超时,防止死锁
+        //当前锁的value
         String currentValue = (String)redisTemplate.opsForValue().get(key);
         //如果锁过期
         if(!StringUtils.isEmpty(currentValue) && Long.parseLong(currentValue) < System.currentTimeMillis()){
