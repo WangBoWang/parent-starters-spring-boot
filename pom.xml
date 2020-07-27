@@ -64,6 +64,7 @@
         <module>web-spring-boot-starter</module>
         <module>kafka-spring-boot-starter</module>
         <module>redis-spring-boot-starter</module>
+        <module>jwt-spring-boot-starter</module>
     </modules>
 
     <!--通用依赖，子类可直接继承依赖服务和服务版本-->

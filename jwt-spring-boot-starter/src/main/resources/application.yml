@@ -1,0 +1,6 @@
+jwt:
+  enabled: false
+  secret: weclome
+  accessTokenExpiration: 7200
+  refreshTokenExpiration: 2592000
+  excludePaths:
