@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-    com.spring.boot.jwt.autoconfigure.JwtUtilAutoConfiguration,\
-    com.spring.boot.jwt.autoconfigure.AuthenticationFilterAutoConfiguration
